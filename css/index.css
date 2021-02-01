@@ -1,0 +1,261 @@
+body{
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+img{
+    max-width: 100%;
+    display: block;
+}
+a{
+    text-decoration: none;
+    display: block;
+}
+*,*::before,*::after{
+    box-sizing: border-box;
+}
+.container{
+    max-width: 960px;
+    margin: 0 auto;
+}
+.d-flex{
+    display: flex;
+}
+.h-100{
+    height: 100%;
+}
+.align-items-center{
+    align-items: center;
+}
+.justify-content-center {
+    justify-content: center;
+}
+.justify-content-between{
+    justify-content: space-between;
+}
+.navbar-trending{
+    width: 800px;
+    margin: 0 auto;
+}
+
+.flex-wrap{
+    flex-wrap: wrap;
+}
+.text-center{
+    text-align: center;
+}
+.select-location{
+    width: 452px;
+}
+.custom-select{
+    appearance: none;
+    background-color: rgba(255,255,255,0.7);
+    border: 3px solid #FFFFFF;
+    padding: 15px 10px;
+    border-radius: 3px;
+    font-size: 18px;
+    background-image: url('../assets/icons_down.png');
+    background-position: right 10px center;
+    background-repeat: no-repeat;
+}
+.custom-select:focus{
+    outline: none;
+}
+.list{
+    margin-bottom: 44px;
+}
+.list-item {
+    width: 48%;
+    background: #FFFFFF;
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,0.20);
+    border-radius: 3px;
+    margin-bottom: 36px;
+    position: relative;
+}
+.list .list-item:nth-child(odd)  {
+    margin-right: 16px;
+}
+.travel-img{
+    position: relative;   
+}
+.travel-img:hover{
+    opacity: 0.8;
+}
+.travel-img img{
+    width: 100%;
+    height: 155px;
+    object-fit: cover;
+}
+.travel-title{
+    font-size: 24px;
+}
+.page-item{
+    margin: 0 16px;
+}
+.page-link{
+    color: #4A4A4A;;
+}
+.page-link:hover{
+    color:#559AC8;
+}
+/* 表頭背景圖 */
+.bg-header{
+    background-image: url('../assets/the-urban-landscape-1698285.png');
+}
+.bg-cover{
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+/* 主標題 */
+.h1{
+    font-size: 40px;
+    letter-spacing: 3.89px;
+    margin-bottom: 96px;
+}
+.header{
+    padding: 89px 0 107px 0;
+    position: relative;
+}
+.header .container{
+    flex-direction: column;
+}
+.navbar-trending{
+    background-color: #fff;
+    position: absolute;
+    bottom: -84px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+    padding: 20px 50px;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,0.20);
+}
+.navbar-trending li{
+    font-size: 20px;
+}
+.navbar-trending a{
+    color: #fff;
+    padding: 12px 35px;
+    border-radius: 5px;
+    margin-right: 23px;
+    white-space: nowrap;
+}
+.navbar-trending a:hover{
+    opacity: 0.7;
+    color: #000;
+}
+.navbar-trending h3{
+    font-size: 18px;
+    margin-bottom: 14px;
+}
+@media (max-width: 992px) {
+    .navbar-trending{
+        position: static;
+        transform: translateX(0);
+        width: auto;
+        max-width: 800px;
+    }
+    .navbar-trending li{
+        margin-bottom: 10px;
+    }
+    .select-location{
+        margin-bottom: 107px;
+    }
+}
+.bg-warning{
+    background-color: #F5D005;
+}
+.bg-primary{
+    background-color: #559AC8;
+}
+.text-white{
+    color: #fff;
+}
+.bg-danger{
+    background-color: #FFA782;
+}
+.bg-info{
+    background-color: #8A82CC;
+}
+.main{
+    padding-top: 133px;
+    background-color: #F7F7F7;
+    padding-bottom: 44px;
+}
+.border-top-primary{
+    border-top: 1px dashed #559AC8;
+}
+.arrow-down{
+    background-color: #fff;
+    border-radius: 50%;
+    border: 1px solid#559AC8;
+    height: 24px;
+    width: 24px;
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.main .container{
+    position: relative;
+    padding-top: 76px;
+}
+.title{
+    font-size: 36px;
+    color: #8A82CC;
+    margin-bottom: 24px;
+}
+
+.text-white{
+    color: #fff;
+}
+.district-text, .travel-title{
+    padding: 5px;
+    background-color: rgba(0,0,0,0.1);
+    border-radius: 5px;
+}
+.district-group{
+    position: absolute;
+    bottom: 0;
+    width: 100%; 
+}
+.list-item ul{
+    padding: 16px 23px 22px 23px;
+}
+.travel-info:not(:last-child) {
+    margin-bottom: 16px;
+}
+
+.travel-info-icon{
+    margin-right: 8px;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.ticket-info{
+    position: absolute;
+    right: 24px;
+    bottom: 20px;
+    display: flex;
+}
+.ticket-info img{
+    margin-right: 8px;
+}
+.scroll-top{
+    position: fixed;
+    bottom: 120px;
+    right: 24px;
+}
+.footer{
+    font-size: 14px;
+    padding: 24px 0;
+}
+.footer h4{
+    margin-bottom: 16px;
+}
+.footer p,.footer a{
+    color: #FFD366;
+}
+.footer a:hover{
+    color: #fae9bd;
+}
