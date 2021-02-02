@@ -15,6 +15,8 @@ function getTravelData() {
           // console.log(json);
           let travelData = json.data.XML_Head.Infos.Info;
           localStorage.setItem('travelData', JSON.stringify(travelData));
+          travelDataArr = JSON.parse(localStorage.getItem('travelData'));
+          selectDistrict(travelDataArr);
       }
     };
   request.onerror = () => {
@@ -28,7 +30,7 @@ function getTravelData() {
   
 }
 getTravelData();
-selectDistrict(travelDataArr);
+
 
 // 改變 select 選項 (change)時，出現特定行政區景點
 selectLocation.addEventListener('change',function () {
