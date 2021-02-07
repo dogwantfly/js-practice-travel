@@ -93,9 +93,14 @@ a{
 .page-link{
     color: #4A4A4A;;
 }
+.page-link.active{
+    color:#559AC8;
+    font-weight: bold;
+}
 .page-link:hover{
     color:#559AC8;
 }
+
 /* 表頭背景圖 */
 .bg-header{
     background-image: url('../assets/the-urban-landscape-1698285.png');
@@ -180,6 +185,7 @@ a{
     background-color: #F7F7F7;
     padding-bottom: 44px;
 }
+
 .border-top-primary{
     border-top: 1px dashed #559AC8;
 }
@@ -219,6 +225,10 @@ a{
 }
 .list-item ul{
     padding: 16px 23px 22px 23px;
+}
+.travel-info{
+    text-align: left;
+    line-height: 1.5;
 }
 .travel-info:not(:last-child) {
     margin-bottom: 16px;
