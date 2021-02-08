@@ -69,7 +69,6 @@ selectLocation.addEventListener('change',function () {
 // 點擊熱門行政區時，出現特定行政區景點
 trendingDistrict.addEventListener('click', function (e){
   e.preventDefault();
-  console.log(e.target.nodeName);
   if (e.target.nodeName === 'A') {
     clickDistrict(travelDataArr,e.target);
   }
@@ -79,7 +78,6 @@ trendingDistrict.addEventListener('click', function (e){
 // 選擇特定行政區，將資料顯示
 function selectDistrict(travelData) {
   let districtValue = selectLocation.value;
-  console.log(districtValue);
   if (districtValue === '') {
     list.innerHTML = '';
     // pagination(travelData);
@@ -94,7 +92,6 @@ function selectDistrict(travelData) {
 // 點擊熱門行政區
 function clickDistrict(travelData,target) {
   let districtValue = target.innerText;
-  console.log(districtValue);
   if (districtValue === '') {
     list.innerHTML = '';
     // pagination(travelData);
@@ -113,7 +110,6 @@ function clickDistrict(travelData,target) {
 function showTravelData(travelData,districtValue,nowPage) {
   let districtArr = [];
   let districtStr;
-  console.log(districtValue);
   if (districtValue === undefined) {
     districtArr = travelData;
   } else {
@@ -124,15 +120,12 @@ function showTravelData(travelData,districtValue,nowPage) {
       };
     };
   }
-  console.log(districtArr);
   pagination(districtArr,nowPage);
   // 點擊分頁
   paginationNav.addEventListener('click', function (e) {
     e.preventDefault();
     if (e.target.nodeName !== 'A') return;
-    console.log(e);
     const page = e.target.dataset.page;
-    console.log(page);
     showTravelData(districtArr,districtValue,page);
   })
 }
@@ -143,7 +136,7 @@ function pagination(districtArr,nowPage=1) {
   const pageTotal = Math.ceil(districtLength / dataPerPage);
   const newDistrictArr = [];
   // 當前頁數
-  let currentPage = nowPage;  
+  let currentPage = Number(nowPage);  
   // 傳到 pageBtn function
   const page = {
     pageTotal,
@@ -151,7 +144,6 @@ function pagination(districtArr,nowPage=1) {
     hasPage: currentPage > 1,
     hasNext: currentPage < pageTotal
   }
-  console.log(`全部資料:${districtLength} 每一頁顯示:${dataPerPage}筆 總頁數:${pageTotal} 當前頁數:${currentPage}`);
   
   // 當"當前頁數"比"總頁數"大的時候，"當前頁數"就等於"總頁數"
   if (currentPage > pageTotal) {
@@ -166,7 +158,6 @@ function pagination(districtArr,nowPage=1) {
       newDistrictArr.push(item);
     };
   })
-  console.log(newDistrictArr);
   showPageData(newDistrictArr);
   pageBtn(page);
 }
@@ -176,11 +167,7 @@ function showPageData(newDistrictArr) {
   for (let i = 0; i < newDistrictArr.length; i += 1) {
     let element = document.createElement('li');
     element.classList.add('list-item');
-    // console.log(districtArr[i]);
-    // console.log(travelData);
-    // console.log(travelData[i],i);
     let endStr = (newDistrictArr[i].Add).indexOf('區');
-    // console.log(endStr);
     districtStr = (newDistrictArr[i].Add).slice(6, endStr+1);
       element.innerHTML = 
       `<a href="#" class="travel-img text-white">
@@ -221,6 +208,8 @@ function showPageData(newDistrictArr) {
 }
 // 顯示分頁按鈕
 function pageBtn(page) {
+  let start = 0;
+  let end = page.pageTotal;
   paginationList.innerHTML = '';
   if (page.hasPage) {
     let element = document.createElement('li');
@@ -228,9 +217,22 @@ function pageBtn(page) {
     element.innerHTML = `<a class="page-link" href="#" data-page="${Number(page.currentPage) - 1}">&lt Previous</a>`;
     paginationList.appendChild(element);
   }
-  for (let i = 0; i < page.pageTotal; i++) {
+  if (page.pageTotal > 5) {
+    if (page.currentPage === 1) {
+      start = page.currentPage - 1;
+      end = page.currentPage + 4;
+    } else if (page.currentPage <= page.pageTotal && page.currentPage >= page.pageTotal - 5){
+      start = page.pageTotal - 5;
+      end = page.pageTotal;
+    } else {
+      start = page.currentPage - 2;
+      end = page.currentPage + 3;
+    }
+  }
+  for (let i = start; i < end; i++) {
     let element = document.createElement('li');
     element.classList.add('page-item');
+    
     if (Number(page.currentPage) === i+1) {
       element.innerHTML = `<a class="page-link active" href="#" data-page="${i+1}">${i+1}</a>`;
     } else {
