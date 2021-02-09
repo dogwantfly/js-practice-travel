@@ -74,7 +74,6 @@ trendingDistrict.addEventListener('click', function (e){
   }
 }
 );
-
 // 選擇特定行政區，將資料顯示
 function selectDistrict(travelData) {
   let districtValue = selectLocation.value;
